@@ -21,7 +21,7 @@ function Range({ dayTime, rangeValues, handleRange }) {
                         type='range' list="tickmarks" onChange={handleRangeChange} />
                     <datalist id="tickmarks" className={style.rangeList}>
                     
-                        {rangeValues.map((value) => <option value={value[0]} label={value[1] + 'h.'} className={style.rangeOption} />)}
+                        {rangeValues.map((value) => <option key={value[0]} value={value[0]} label={value[1] + 'h.'} className={style.rangeOption} />)}
                     </datalist>
                 </div>
             </form>
