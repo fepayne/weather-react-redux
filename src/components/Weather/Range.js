@@ -1,25 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getCitySelector, getCountrySelector, getCurrentWeatherData, getImgID, getCurrentWeatherDescription } from './selectors';
-import * as style from './Weather.module.css'
+import { actions } from '../../redux/weather-reducer';
+import { getRangeValuesSelector } from './selectors';
+import * as style from './Range.module.css'
 
-function Range({ }) {
+function Range({ dayTime, rangeValues, handleRange }) {
     const handleRangeChange = (event) => {
-        console.log(event.target.value);
+        handleRange(event.target.value)
+    }
+
+    if ((rangeValues.length - 1) <= 1) {
+        return null
     }
 
     return (
-        <div>
+        <div className={style.wrapper}>
             <form>
-                <input step='20' type='range' list="tickmarks" onChange={handleRangeChange}></input>
-                <datalist id="tickmarks">
-                    <option value="0" label="0%" />
-                    <option value="20" label="1" />
-                    <option value="40" label="2" />
-                    <option value="60" label="3" />
-                    <option value="80" label="4" />
-                    <option value="100" label="100%" />
-                </datalist>
+                <div className={style.range}>
+                    <input className={style.rangeInput} value={dayTime} step='1' min='0' max={rangeValues.length - 1}
+                        type='range' list="tickmarks" onChange={handleRangeChange} />
+                    <datalist id="tickmarks" className={style.rangeList}>
+                    
+                        {rangeValues.map((value) => <option value={value[0]} label={value[1] + 'h.'} className={style.rangeOption} />)}
+                    </datalist>
+                </div>
             </form>
         </div>
     )
@@ -27,9 +31,16 @@ function Range({ }) {
 
 const mapStateToProps = (state) => {
     return {
-        
+        dayTime: state.weather.dayTime,
+        rangeValues: getRangeValuesSelector(state)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleRange: (dayTimeN) => dispatch(actions.setCurrentWeather(dayTimeN))
     }
 }
 
 // export default Range
-export default connect(mapStateToProps, {})(Range)
+export default connect(mapStateToProps, mapDispatchToProps)(Range)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, reduxForm, reset, SubmissionError } from 'redux-form'
-import { requestCurrrentWeather, requestDailyForecast } from '../../redux/weather-reducer'
+import { requestTodayWeather, requestDailyForecast } from '../../redux/weather-reducer'
 import * as style from './Search.module.css'
 
 const renderField = ({ input, type, placeholder, meta: { error } }) => (
@@ -26,7 +26,7 @@ const SearchReduxForm = reduxForm({ form: 'search' })(SearchForm)
 function SeacrhContainer() {
     const onSubmit = async (formData, dispatch) => {
         try {
-            await dispatch(requestCurrrentWeather(formData.city))
+            await dispatch(requestTodayWeather(formData.city))
             await dispatch(requestDailyForecast())
             dispatch(reset('search'))
         } catch (error) {

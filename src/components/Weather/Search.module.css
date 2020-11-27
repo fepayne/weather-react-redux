@@ -3,7 +3,7 @@
     float: right;
     margin-bottom: 30px;
     padding: 10px 0;
-    border-bottom: black solid 1px;
+    border-bottom: #ffa500 solid 2px;
 }
 
 .searchH3 {
@@ -19,7 +19,7 @@
 .error {
     margin: 3px 0;
     display: block;
-    color: red;
+    color: black;
     width: 100%;
     text-align: center;
     font-size: small;

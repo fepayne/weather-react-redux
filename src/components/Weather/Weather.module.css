@@ -19,3 +19,26 @@
     font-size: 25px;
     margin-top: 15px;
 }
+
+.additionalInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: x-small;
+    border-left: #ffa500 solid 2px;
+    height: 30px;
+    margin: 20px 0;
+    padding-left: 5px;
+    width: 50%;
+}
+
+.additionalInfo div {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    height: 15px;
+    width: 15px;
+    padding-right: 2px;
+}

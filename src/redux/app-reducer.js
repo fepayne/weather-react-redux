@@ -1,4 +1,4 @@
-import { requestCurrrentWeather, requestDailyForecast } from './weather-reducer';
+import { requestTodayWeather, requestDailyForecast } from './weather-reducer';
 
 let initialState = {
     initialized: false
@@ -21,7 +21,7 @@ export const actions = {
 }
 
 export const initializeApp = () => (dispatch) => {
-    dispatch(requestCurrrentWeather('Kharkov')).then(() => {
+    dispatch(requestTodayWeather('Kharkov')).then(() => {
         dispatch(requestDailyForecast()).then(() => {
                 dispatch(actions.initializedSuccess())
             })
