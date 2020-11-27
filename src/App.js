@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { connect, Provider } from 'react-redux';
+import Weather from './components/Weather/Weather';
+import store from './redux/redux-store';
+import { initializeApp } from './redux/app-reducer';
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    props.initializeApp()
+  }, [props.initialized])
+
+  if (!props.initialized) {
+    return (
+      <div>
+        loading...
+      </div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Weather></Weather>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+const AppContainer = connect(mapStateToProps, { initializeApp })(App)
+
+const WeatherJSApp = (props) => {
+  return (
+    <Provider store={store}>
+      <AppContainer></AppContainer>
+    </Provider>
+  )
+}
+
+export default WeatherJSApp
