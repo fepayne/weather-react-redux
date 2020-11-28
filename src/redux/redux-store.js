@@ -1,18 +1,20 @@
-import { applyMiddleware, combineReducers, compose, createStore } from "redux";
-import { forecastReducer } from './weather-reducer';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import appReducer from './app-reducer'
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
+import { forecastReducer } from './weather-reducer';
+import appReducer from './app-reducer';
 
-let rootReducer = combineReducers({
-    weather: forecastReducer,
-    app: appReducer,
-    form: formReducer
-})
+const rootReducer = combineReducers({
+  weather: forecastReducer,
+  app: appReducer,
+  form: formReducer,
+});
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)))
-window.__store__ = store
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunkMiddleware))
+);
 
-export default store
+export default store;

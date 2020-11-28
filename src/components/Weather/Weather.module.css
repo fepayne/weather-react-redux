@@ -1,44 +1,44 @@
 .wrapper {
-    max-width: 500px;
-    margin: 0 auto;
-    margin-top: 100px;
-    padding: 10px 20px;
-    border: black solid 1px;
-    background-color: white;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 10px 20px;
+  border: black solid 1px;
+  background-color: white;
 }
 
 .weatherImg {
-    height: 70px;
+  height: 70px;
 }
 
 .weather {
-    display: inline-block;
-    line-height: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-    margin-top: 15px;
+  display: inline-block;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  margin-top: 15px;
 }
 
 .additionalInfo {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: x-small;
-    border-left: #ffa500 solid 2px;
-    height: 30px;
-    margin: 20px 0;
-    padding-left: 5px;
-    width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: x-small;
+  border-left: #ffa500 solid 2px;
+  height: 30px;
+  margin: 20px 0;
+  padding-left: 5px;
+  width: 50%;
 }
 
 .additionalInfo div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .icon {
-    height: 15px;
-    width: 15px;
-    padding-right: 2px;
+  height: 15px;
+  width: 15px;
+  padding-right: 2px;
 }

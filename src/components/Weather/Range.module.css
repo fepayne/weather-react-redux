@@ -1,18 +1,18 @@
 .wrapper {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .rangeList {
-    display: flex;
-    justify-content: space-between;
-    height: auto;
-    overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  overflow: hidden;
 }
 
 .range {
-    width: 100%;
+  width: 100%;
 }
 
 .rangeInput {
-    width: 100%;
+  width: 100%;
 }

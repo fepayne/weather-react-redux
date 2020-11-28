@@ -8,10 +8,10 @@ export const getPressureSelector = (state) => state.weather.currentWeatherData.m
 export const getHumiditySelector = (state) => state.weather.currentWeatherData.main.humidity
 
 export const getDailyForecastSelector = (state) => {
-    let data = [];
+    const data = [];
     const forecastData = state.weather.dailyForecastData
     const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i+=1) {
         data[i] = {
             tempDay: Math.round(forecastData.daily[i].temp.day),
             tempMin: Math.round(forecastData.daily[i].temp.min),
@@ -25,11 +25,11 @@ export const getDailyForecastSelector = (state) => {
 
 export const getRangeValuesSelector = (state) => {
     const l = state.weather.todayWeatherData.length;
-    let data = [];
-    for (let i = 0; i < l; i++) {
+    const data = [];
+    for (let i = 0; i < l; i+=1) {
         let time = new Date(state.weather.todayWeatherData[i].dt * 1000).getUTCHours() + state.weather.timeZone / 3600
         if (time >= 24) {
-            time = time - 24;
+            time -= 24;
         } 
         data.push([i, time ])
     }
