@@ -27,7 +27,7 @@ export const getRangeValuesSelector = (state) => {
     const l = state.weather.todayWeatherData.length;
     const data = [];
     for (let i = 0; i < l; i+=1) {
-        let time = new Date(state.weather.todayWeatherData[i].dt * 1000).getUTCHours() + state.weather.timeZone / 3600
+        let time = new Date(state.weather.todayWeatherData[i].dt * 1000).getUTCHours() + Math.abs(state.weather.timeZone) / 3600
         if (time >= 24) {
             time -= 24;
         } 

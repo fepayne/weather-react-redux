@@ -33,7 +33,7 @@ function Range({ dayTime, rangeValues, handleRange }) {
               <option
                 key={value[0]}
                 value={value[0]}
-                label={`${value[1]}'h.'`}
+                label={`${value[1]}h.`}
                 className={style.rangeOption}
               />
             ))}
@@ -53,7 +53,7 @@ Range.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    dayTime: state.weather.dayTime,
+    dayTime: +state.weather.dayTime,
     rangeValues: getRangeValuesSelector(state),
   };
 };

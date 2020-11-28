@@ -82,7 +82,7 @@ Weather.propTypes = {
     country: PropTypes.string.isRequired,
     // eslint-disable-next-line react/forbid-prop-types
     currentWeatherData: PropTypes.object.isRequired,
-    imgID: PropTypes.number.isRequired,
+    imgID: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     windSpeed: PropTypes.number.isRequired,
     pressure: PropTypes.number.isRequired,

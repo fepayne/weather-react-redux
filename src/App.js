@@ -1,3 +1,4 @@
+/* eslint-disable react-redux/prefer-separate-component-file */
 import React, { useEffect } from 'react';
 import { connect, Provider } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -27,6 +28,7 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
+// eslint-disable-next-line react-redux/connect-prefer-named-arguments
 const AppContainer = connect(mapStateToProps, { initializeApp })(App);
 
 const WeatherJSApp = () => {
